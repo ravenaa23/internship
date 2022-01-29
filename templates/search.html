@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <section class="search" id="search">
+        <center><img class="search-img" src="{% static 'search.png' %}"></center>
+        {% if msg %}
+          <p class="notifier-text">{{ msg }}</p>
+        {% endif %}
+        <div class="max-width">
+        <div class="search-content">
+          <form action="/search/" method="post">
+            {% csrf_token %}
+            <div class="bar">
+                <input class="searchbar" list="browsers" name="browser">
+                  <datalist class="dropbox" id="browsers">
+                    {% for doctor in doctors.doctors %}
+                      <option label="Dr. {{doctor.name}} - {{doctor.hospital}}"  value="{{doctor.email}}">
+                    {% endfor %}
+                  </datalist>
+            </div>
+            <br>
+            <center>
+              <input type="submit" value="Visit Doctor" class="search-doctor">
+            </center>
+          </form>
+        </div>
+        </div>
+    </section>
+
+{% endblock %}

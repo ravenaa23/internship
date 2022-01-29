@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+    <section class="teams" id="teams">
+        <div class="max-width">
+            <h2 class="title" style=color:crimson;padding-top:20px;>Welcome Doctor :)</h2>
+            <center>
+                <div class="carousel owl-carousel">
+                    <div class="card">
+                        <div class="box" onclick="window.location.href='{% url 'accounts:login' %}';">
+                            <img src="{% static 'login.png' %}" alt="">
+                            <div class="text">LOGIN</div>
+                            <h3>Already a Member ?</h3>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="box" onclick="window.location.href='{% url 'accounts:register' %}';">
+                            <img src="{% static 'register.png' %}" alt="">
+                            <div class="text">REGISTER</div>
+                            <h3>New Member ?</h3>
+                        </div>
+                    </div>
+                </div>
+            </center>
+        </div>
+    </section>
+{% endblock %}
